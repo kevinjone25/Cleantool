@@ -50,8 +50,23 @@ echo ...../O@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 echo ....=O@O@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                                           
 echo =========================================================================================
 
-FOR %%i IN ("C:\Users\User\Desktop\test\*.*") DO del "%%i"
-FOR /D %%i IN ("C:\Users\User\Desktop\test\*.*") DO rmdir "%%i" /s /q
+FOR %%i IN ("C:\Users\User\Downloads\*.*") DO del "%%i"  /Q
+FOR /D %%i IN ("C:\Users\User\Downloads\*.*") DO rmdir "%%i"  /S /Q
+
+
+FOR  %%c in ("C:\Users\User\Desktop\*.*") DO (
+	if "%%c" neq "你好" (del "%%c" /Q)
+)
+
+
+FOR  /D %%c in ("C:\Users\User\Desktop\*.*") DO (
+	if "%%c" neq '老師講義區' (
+		IF "%%c" neq '本機' (
+			rmdir "%%c" /S /Q
+		)
+	)
+)
+
 pause
 
 
